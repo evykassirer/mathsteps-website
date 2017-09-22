@@ -1,0 +1,16 @@
+.steps {
+	align-self: left;
+	margin-top: 10px;
+}
+
+.step {
+	align-self: left;
+}
+
+.substeps {
+	margin-left: 30px;
+}
+
+.error {
+	margin-top: 10px;
+}
