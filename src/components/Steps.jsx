@@ -11,15 +11,23 @@ export default class Steps extends Component {
     input: PropTypes.string
   };
 
+  printEquation(equation) {
+    return `${equation.leftNode.toString()} ${equation.comparator} ${equation.rightNode.toString()}`;
+  }
+
   renderStep = (step) => {
-    const topLevelOld = <div>{step.oldNode.toString()}</div>;
+    const topLevelOld = <div>
+      {step.oldNode ? step.oldNode.toString() : this.printEquation(step.oldEquation)}
+    </div>;
     const subSteps = <div className='substeps'>
       {this.renderSteps(step.substeps)}
     </div>;
-    const topLevelNew = <div>{step.newNode.toString()}</div>;
+    const topLevelNew = <div>
+      {step.newNode ? step.newNode.toString() : this.printEquation(step.newEquation)}
+    </div>;
 
     // todo unique key
-    return <div className='step' key={step.newNode.toString()}>
+    return <div className='step'>
       {topLevelOld}
       {subSteps}
       {topLevelNew}
@@ -28,14 +36,27 @@ export default class Steps extends Component {
 
   renderSteps = (steps) => {
     const renderedSteps = steps.map(this.renderStep);
-    console.log(renderedSteps)
     return <div>
       {renderedSteps}
     </div>
   }
 
+  isEquation(mathInput) {
+    const comparators = ['<=', '>=', '=', '<', '>'];
+    let isEquation = false;
+
+    comparators.forEach(comparator => {
+      if (mathInput.includes(comparator)) isEquation = true;
+    });
+    return isEquation;
+  }
+
   render() {
-    const steps = mathsteps.simplifyExpression(this.props.input);
+    const {input} = this.props;
+    const isEquation = this.isEquation(input);
+    const steps = isEquation
+      ? mathsteps.solveEquation(input)
+      : mathsteps.simplifyExpression(input);
 
     if (steps.length === 0) {
       return <div className='error'>

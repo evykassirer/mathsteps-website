@@ -17,6 +17,7 @@ div {
   background-color: #222;
   padding: 20px;
   color: white;
+  height: 180px; /* TODO can this just contain its children */
 }
 
 .source-code-url {
