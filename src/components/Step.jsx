@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import '../styles/steps.css';
+import print from '../print.js';
 
 export default class Step extends Component {
   static propTypes = {
@@ -13,18 +14,6 @@ export default class Step extends Component {
     substepsExpanded: false
   }
 
-  printEquation(equation) {
-    return `${equation.leftNode.toString()} ${equation.comparator} ${equation.rightNode.toString()}`;
-  }
-
-  printOldNode(step) {
-    return step.oldNode ? step.oldNode.toString() : this.printEquation(step.oldEquation);
-  }
-
-  printNewNode(step) {
-    return step.newNode ? step.newNode.toString() : this.printEquation(step.newEquation);
-  }
-
   toggleSubsteps = () => {
     const {substepsExpanded} = this.state;
 
@@ -34,9 +23,8 @@ export default class Step extends Component {
   }
 
   renderStep = (step) => {
-    // todo unique key
     return <div className='step'>
-      <div>{this.printNewNode(step)}</div>
+      <div>{print.newNode(step)}</div>
     </div>;
   }
 
@@ -46,7 +34,7 @@ export default class Step extends Component {
     if (substeps.length === 0) return null;
 
     return <div className='substeps'>
-      {this.printOldNode(substeps[0])}
+      {print.oldNode(substeps[0])}
       {substeps.map((step, index) => <Step
         step={step}
         key={this.props.index + index.toString()}
@@ -60,11 +48,11 @@ export default class Step extends Component {
 
     const toggleText = <div onClick={this.toggleSubsteps}>
       <div className='toggleSubsteps'>
-        {this.state.substepsExpanded ? '▼ collapse' : '► expand'}
+        {this.state.substepsExpanded ? '▼' : '►'} substeps
       </div>
     </div>;
 
-    return <div key={this.printOldNode(step)}>
+    return <div key={print.oldNode(step)}>
       {step.substeps.length > 0 && toggleText}
       {substepsExpanded && this.renderSubsteps(step)}
       {this.renderStep(step)}

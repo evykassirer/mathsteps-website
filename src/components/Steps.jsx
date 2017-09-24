@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // webpack ready
 import mathsteps from 'mathsteps-test';
 
+import print from '../print.js';
 import Step from './Step.jsx';
 import '../styles/steps.css';
 
@@ -11,15 +12,6 @@ export default class Steps extends Component {
   static propTypes = {
     input: PropTypes.string
   };
-
-  // TODO move these to a separate file
-  printEquation(equation) {
-    return `${equation.leftNode.toString()} ${equation.comparator} ${equation.rightNode.toString()}`;
-  }
-
-  printOldNode(step) {
-    return step.oldNode ? step.oldNode.toString() : this.printEquation(step.oldEquation);
-  }
 
   isEquation(mathInput) {
     const comparators = ['<=', '>=', '=', '<', '>'];
@@ -35,7 +27,7 @@ export default class Steps extends Component {
     const renderedSteps = steps.map(
       (step, index) => <Step step={step} key={index}/>);
     return <div>
-      {this.printOldNode(steps[0])}
+      {print.oldNode(steps[0])}
       {renderedSteps}
     </div>;
   }
