@@ -9,13 +9,18 @@ export default class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-          <div className="App">
-          <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
+          <div className='App'>
+          <div className='App-header'>
+            <img src={logo} className='App-logo' alt='logo' />
             <h2>A step by step math solver</h2>
-            <a className="source-code-url" href="https://github.com/socraticorg/mathsteps/">
-                contribute to mathsteps on GitHub
-            </a>
+            <div className='urls'>
+              <a className='source-code-url' href='https://github.com/socraticorg/mathsteps/'>
+                mathsteps on GitHub
+              </a>
+              <a className='source-code-url' href='https://github.com/evykassirer/mathsteps-website/'>
+                this demo on GitHub
+              </a>
+            </div>
           </div>
           <Demo/>
         </div>
