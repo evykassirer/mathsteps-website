@@ -3,7 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import logo from './logo.png';
 import Demo from './components/Demo.jsx'
-import './App.css';
+import './styles/App.css';
 
 export default class App extends Component {
   render() {
