@@ -55,7 +55,9 @@ export default class Step extends Component {
     const {substepsExpanded} = this.state;
 
     const toggleText = <div onClick={this.toggleSubsteps}>
-      {this.state.substepsExpanded ? '▼ collapse' : '► expand'}
+      <div className='toggleSubsteps'>
+        {this.state.substepsExpanded ? '▼ collapse' : '► expand'}
+      </div>
     </div>;
 
     return <div>
