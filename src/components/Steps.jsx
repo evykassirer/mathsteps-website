@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // webpack ready
 import mathsteps from 'mathsteps-test';
 
+import Step from './Step.jsx';
 import '../styles/steps.css';
 
 export default class Steps extends Component {
@@ -11,34 +12,13 @@ export default class Steps extends Component {
     input: PropTypes.string
   };
 
+  // TODO move these to a separate file
   printEquation(equation) {
     return `${equation.leftNode.toString()} ${equation.comparator} ${equation.rightNode.toString()}`;
   }
 
-  renderStep = (step) => {
-    const topLevelOld = <div>
-      {step.oldNode ? step.oldNode.toString() : this.printEquation(step.oldEquation)}
-    </div>;
-    const subSteps = <div className='substeps'>
-      {this.renderSteps(step.substeps)}
-    </div>;
-    const topLevelNew = <div>
-      {step.newNode ? step.newNode.toString() : this.printEquation(step.newEquation)}
-    </div>;
-
-    // todo unique key
-    return <div className='step'>
-      {topLevelOld}
-      {subSteps}
-      {topLevelNew}
-    </div>;
-  }
-
-  renderSteps = (steps) => {
-    const renderedSteps = steps.map(this.renderStep);
-    return <div>
-      {renderedSteps}
-    </div>
+  printOldNode(step) {
+    return step.oldNode ? step.oldNode.toString() : this.printEquation(step.oldEquation);
   }
 
   isEquation(mathInput) {
@@ -49,6 +29,14 @@ export default class Steps extends Component {
       if (mathInput.includes(comparator)) isEquation = true;
     });
     return isEquation;
+  }
+
+  renderSteps = (steps) => {
+    const renderedSteps = steps.map(step => <Step step={step}/>);
+    return <div>
+      {this.printOldNode(steps[0])}
+      {renderedSteps}
+    </div>;
   }
 
   render() {
