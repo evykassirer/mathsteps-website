@@ -5,7 +5,8 @@ import '../styles/steps.css';
 
 export default class Step extends Component {
   static propTypes = {
-    step: PropTypes.object // TODO flesh this out with shapeof
+    step: PropTypes.object, // TODO flesh this out with shapeof
+    index: PropTypes.string
   };
 
   state = {
@@ -46,7 +47,10 @@ export default class Step extends Component {
 
     return <div className='substeps'>
       {this.printOldNode(substeps[0])}
-      {substeps.map(step => <Step step={step}/>)}
+      {substeps.map((step, index) => <Step
+        step={step}
+        key={this.props.index + index.toString()}
+      />)}
     </div>;
   }
 
@@ -60,7 +64,7 @@ export default class Step extends Component {
       </div>
     </div>;
 
-    return <div>
+    return <div key={this.printOldNode(step)}>
       {step.substeps.length > 0 && toggleText}
       {substepsExpanded && this.renderSubsteps(step)}
       {this.renderStep(step)}
