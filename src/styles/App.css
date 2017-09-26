@@ -4,8 +4,8 @@ div {
 }
 
 .App {
-	background-color: lightgrey;
-	height: 100vw;
+  background-color: lightgrey;
+  height: 100vw;
 }
 
 .App-logo {
@@ -24,11 +24,11 @@ div {
 }
 
 .source-code-url {
-	color: #1d84ff;
-	text-decoration: none;
+  color: #1d84ff;
+  text-decoration: none;
   padding: 0 20px;
 }
 
 .source-code-url:hover {
-	color: #3BB9FF;
+  color: #3BB9FF;
 }

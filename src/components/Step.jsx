@@ -47,14 +47,14 @@ export default class Step extends Component {
     const {step} = this.props;
     const {substepsExpanded} = this.state;
 
-    const toggleTeXt = <div onClick={this.toggleSubsteps}>
+    const toggleText = <div onClick={this.toggleSubsteps}>
       <div className='toggleSubsteps'>
         {this.state.substepsExpanded ? '▼' : '►'} substeps
       </div>
     </div>;
 
     return <div key={print.oldNode(step)}>
-      {step.substeps.length > 0 && toggleTeXt}
+      {step.substeps.length > 0 && toggleText}
       {substepsExpanded && this.renderSubsteps(step)}
       {this.renderStep(step)}
     </div>
