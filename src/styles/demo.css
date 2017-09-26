@@ -1,0 +1,22 @@
+.demo {
+  width: 500px;
+  align-self: center;
+  border: 1px solid black;
+  padding: 20px;
+  margin-top: 50px;
+  background-color: white;
+}
+
+.input {
+  align: left;
+}
+
+.yourInput {
+  margin-right: 10px;
+  font-size: 25px;
+}
+
+.stepsTitle {
+  margin-top: 30px;
+  font-size: 25px;
+}

@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-class App extends Component {
+import logo from './logo.png';
+import Demo from './components/Demo.jsx'
+import './styles/App.css';
+
+export default class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <MuiThemeProvider>
+          <div className='App'>
+          <div className='App-header'>
+            <img src={logo} className='App-logo' alt='logo' />
+            <h2>A step by step math solver</h2>
+            <div className='urls'>
+              <a className='source-code-url' href='https://github.com/socraticorg/mathsteps/'>
+                mathsteps on GitHub
+              </a>
+              <a className='source-code-url' href='https://github.com/evykassirer/mathsteps-website/'>
+                this demo on GitHub
+              </a>
+            </div>
+          </div>
+          <Demo/>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
-
-export default App;
