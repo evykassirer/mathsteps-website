@@ -1,21 +1,21 @@
 .steps {
-	align-self: left;
-	margin-top: 10px;
+  align-self: left;
+  margin-top: 10px;
 }
 
 .step {
-	align-self: left;
+  align-self: left;
 }
 
 .substeps {
-	margin-left: 30px;
+  margin-left: 30px;
 }
 
 .error {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 .toggleSubsteps {
-	cursor: pointer;
-	user-select: none;
+  cursor: pointer;
+  user-select: none;
 }
