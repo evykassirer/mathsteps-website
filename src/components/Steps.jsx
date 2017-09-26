@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TeX from '../react-components/tex.jsx';
 // this should be just mathsteps and not mathsteps-test once we have
 // webpack ready
 import mathsteps from 'mathsteps-test';
@@ -27,7 +28,7 @@ export default class Steps extends Component {
     const renderedSteps = steps.map(
       (step, index) => <Step step={step} key={index}/>);
     return <div>
-      {print.oldNode(steps[0])}
+      <div className='latex'><TeX>{print.oldNode(steps[0])}</TeX></div>
       {renderedSteps}
     </div>;
   }

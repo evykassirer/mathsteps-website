@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TeX from '../react-components/tex.jsx';
 
 import '../styles/steps.css';
 import print from '../print.js';
@@ -23,8 +24,8 @@ export default class Step extends Component {
   }
 
   renderStep = (step) => {
-    return <div className='step'>
-      <div>{print.newNode(step)}</div>
+    return <div className='step latex'>
+      <div><TeX>{print.newNode(step)}</TeX></div>
     </div>;
   }
 
@@ -34,7 +35,7 @@ export default class Step extends Component {
     if (substeps.length === 0) return null;
 
     return <div className='substeps'>
-      {print.oldNode(substeps[0])}
+      <div className='latex'><TeX>{print.oldNode(substeps[0])}</TeX></div>
       {substeps.map((step, index) => <Step
         step={step}
         key={this.props.index + index.toString()}
@@ -46,14 +47,14 @@ export default class Step extends Component {
     const {step} = this.props;
     const {substepsExpanded} = this.state;
 
-    const toggleText = <div onClick={this.toggleSubsteps}>
+    const toggleTeXt = <div onClick={this.toggleSubsteps}>
       <div className='toggleSubsteps'>
         {this.state.substepsExpanded ? '▼' : '►'} substeps
       </div>
     </div>;
 
     return <div key={print.oldNode(step)}>
-      {step.substeps.length > 0 && toggleText}
+      {step.substeps.length > 0 && toggleTeXt}
       {substepsExpanded && this.renderSubsteps(step)}
       {this.renderStep(step)}
     </div>

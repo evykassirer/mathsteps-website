@@ -19,3 +19,7 @@
   cursor: pointer;
   user-select: none;
 }
+
+.latex {
+  padding: 7px 0;
+}
