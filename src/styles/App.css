@@ -1,0 +1,34 @@
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  background-color: lightgrey;
+  height: 100vw;
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  align-items: center;
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.urls {
+  flex-direction: row;
+}
+
+.source-code-url {
+  color: #1d84ff;
+  text-decoration: none;
+  padding: 0 20px;
+}
+
+.source-code-url:hover {
+  color: #3BB9FF;
+}
