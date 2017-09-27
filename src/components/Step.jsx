@@ -4,6 +4,7 @@ import TeX from '../react-components/tex.jsx';
 
 import '../styles/steps.css';
 import print from '../print.js';
+import Change from '../Change.js';
 
 export default class Step extends Component {
   static propTypes = {
@@ -43,13 +44,6 @@ export default class Step extends Component {
     </div>;
   }
 
-  underscoreCapsToSentence(string) {
-    // this is essentially a replace all
-    string = string.split('_').join(' ');
-    string = string.toLowerCase();
-    return string;
-  }
-
   render() {
     const {step} = this.props;
     const {substepsExpanded} = this.state;
@@ -62,7 +56,7 @@ export default class Step extends Component {
 
     return <div key={print.oldNode(step)}>
       <div className='changeDescription'>
-        {this.underscoreCapsToSentence(step.changeType)}
+        <TeX>{Change.formatChange(step)}</TeX>
       </div>
       {step.substeps.length > 0 && toggleText}
       {substepsExpanded && this.renderSubsteps(step)}
