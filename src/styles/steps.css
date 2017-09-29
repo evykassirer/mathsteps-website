@@ -8,7 +8,9 @@
 }
 
 .substeps {
-  margin-left: 30px;
+  margin-left: 7px;
+  border-left: 1px solid rgba(29, 132, 255, 0.5);;
+  padding-left: 20px;
 }
 
 .error {
@@ -18,8 +20,14 @@
 .toggleSubsteps {
   cursor: pointer;
   user-select: none;
+  color: #1d84ff;
 }
 
 .latex {
   padding: 7px 0;
+}
+
+.changeDescription {
+  color: #1d84ff;
+  padding: 5px 0;
 }

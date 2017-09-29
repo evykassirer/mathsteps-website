@@ -43,6 +43,13 @@ export default class Step extends Component {
     </div>;
   }
 
+  underscoreCapsToSentence(string) {
+    // this is essentially a replace all
+    string = string.split('_').join(' ');
+    string = string.toLowerCase();
+    return string;
+  }
+
   render() {
     const {step} = this.props;
     const {substepsExpanded} = this.state;
@@ -54,6 +61,9 @@ export default class Step extends Component {
     </div>;
 
     return <div key={print.oldNode(step)}>
+      <div className='changeDescription'>
+        {this.underscoreCapsToSentence(step.changeType)}
+      </div>
       {step.substeps.length > 0 && toggleText}
       {substepsExpanded && this.renderSubsteps(step)}
       {this.renderStep(step)}
