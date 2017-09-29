@@ -16,9 +16,4 @@ npm run start
 
 ## Deploy
 
-First build `npm run build`
-
-Then (TBD: instructions in create react app README)
-
-
-TODO: add webpack to mathsteps so we can use it instead of mathsteps-test
+Only maintainers of this repo should have access, but it is done just with `npm run deploy` - so easy!
