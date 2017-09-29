@@ -5,7 +5,7 @@ div {
 
 .App {
   background-color: lightgrey;
-  height: 100vw;
+  min-height: 100vh;
 }
 
 .App-logo {
