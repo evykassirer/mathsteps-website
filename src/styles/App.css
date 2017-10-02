@@ -32,3 +32,15 @@ div {
 .source-code-url:hover {
   color: #3BB9FF;
 }
+
+.socratic {
+  align-self: center;
+  text-decoration: none;
+  color: black;
+  margin-top: auto;
+  margin-bottom: 15px;
+}
+
+.socratic:hover {
+  color: #1d84ff;
+}
