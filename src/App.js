@@ -23,6 +23,7 @@ export default class App extends Component {
             </div>
           </div>
           <Demo/>
+          <a className='socratic' href="http://socratic.org">Thanks to  Socratic</a>
         </div>
       </MuiThemeProvider>
     );
