@@ -1,6 +1,4 @@
-// this should be just mathsteps and not mathsteps-test once we have
-// webpack ready
-import { ChangeTypes } from 'mathsteps-test';
+import { ChangeTypes } from 'mathsteps';
 import NodeType from './NodeType.js'
 
 const Change = {

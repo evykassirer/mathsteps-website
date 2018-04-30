@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TeX from '../react-components/tex.jsx';
-// this should be just mathsteps and not mathsteps-test once we have
-// webpack ready
-import mathsteps from 'mathsteps-test';
+import mathsteps from 'mathsteps';
 
 import print from '../print.js';
 import Step from './Step.jsx';
